@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>منيو | SUSHI HIGHWAY</title>
+<title>Menu | SUSHI HIGHWAY</title>
 <style>
 body {
     margin: 0;
@@ -59,6 +59,13 @@ nav a {
     transform: translateY(-5px);
     box-shadow: 0 4px 16px rgba(0,0,0,.1);
 }
+.item img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    height: 180px;
+}
 .item h3 {
     margin: 0 0 8px 0;
     font-size: 20px;
@@ -86,54 +93,73 @@ footer {
 <header>
     <div class="logo"><img src="logo.png" alt="SUSHI HIGHWAY Logo"></div>
     <nav>
-        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="index.html">Home</a>
     </nav>
 </header>
 
 <!-- STARTERS -->
 <section id="starters" class="menu-section">
-<h2 class="menu-title">المقبلات</h2>
+<h2 class="menu-title">Starters</h2>
 <div class="menu-grid">
-    <div class="item"><h3>Edamame</h3><div class="price">5$</div></div>
-    <div class="item"><h3>Cheese Rolls</h3><div class="price">4.6$</div></div>
-    <div class="item"><h3>Spring Rolls</h3><div class="price">3.5$</div></div>
+    <div class="item">
+        <img src="images/edamame.jpg" alt="Edamame" />
+        <h3>Edamame</h3>
+        <div class="price">5$</div>
+    </div>
+    <div class="item">
+        <img src="images/cheese-rolls.jpg" alt="Cheese Rolls" />
+        <h3>Cheese Rolls</h3>
+        <div class="price">4.6$</div>
+    </div>
+    <div class="item">
+        <img src="images/spring-rolls.jpg" alt="Spring Rolls" />
+        <h3>Spring Rolls</h3>
+        <div class="price">3.5$</div>
+    </div>
 </div>
 </section>
 
 <!-- SALADS -->
 <section id="salads" class="menu-section">
-<h2 class="menu-title">السلطات</h2>
+<h2 class="menu-title">Salads</h2>
 <div class="menu-grid">
     <div class="item">
+        <img src="images/crab-salad.jpg" alt="Crab Salad" />
         <h3>Crab Salad</h3>
         <p>Crab mix 200g, avocado, mango, crispy topping</p>
         <div class="price">12$</div>
     </div>
     <div class="item">
+        <img src="images/salmon-salad.jpg" alt="Salmon Salad" />
         <h3>Salmon Salad</h3>
         <p>Salmon 180g, avocado, mango, crispy topping</p>
         <div class="price">16$</div>
     </div>
     <div class="item">
+        <img src="images/shrimp-salad.jpg" alt="Shrimp Salad" />
         <h3>Shrimp Salad</h3>
         <p>Shrimp 180g, avocado, mango, crispy topping</p>
         <div class="price">15$</div>
     </div>
     <div class="item">
+        <img src="images/tuna-salad.jpg" alt="Tuna Salad" />
         <h3>Tuna Salad</h3>
         <p>Tuna 180g, avocado, mango, crispy topping</p>
         <div class="price">16$</div>
     </div>
     <div class="item">
+        <img src="images/mixed-seafood-salad.jpg" alt="Mixed Sea Food Salad" />
         <h3>Mixed Sea Food Salad</h3>
         <p>Crab, salmon, tuna, shrimp mix</p>
         <div class="price">16$</div>
     </div>
     <div class="item">
+        <img src="images/greek-salad.jpg" alt="Greek Salad" />
         <h3>Greek Salad</h3>
         <div class="price">6$</div>
     </div>
     <div class="item">
+        <img src="images/lebanese-salad.jpg" alt="Lebanese Salad" />
         <h3>Lebanese Salad</h3>
         <div class="price">5.5$</div>
     </div>
@@ -142,63 +168,124 @@ footer {
 
 <!-- TEMAKI -->
 <section id="temaki" class="menu-section">
-<h2 class="menu-title">تيمّاكي (1 قطعة)</h2>
+<h2 class="menu-title">Temaki (1pc)</h2>
 <div class="menu-grid">
-    <div class="item"><h3>Tuna</h3><div class="price">6$</div></div>
-    <div class="item"><h3>Salmon</h3><div class="price">6$</div></div>
-    <div class="item"><h3>Crab</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Shrimp</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Hawaiian</h3><div class="price">3$</div></div>
-    <div class="item"><h3>California</h3><div class="price">4$</div></div>
+    <div class="item">
+        <img src="images/tuna-temaki.jpg" alt="Tuna Temaki" />
+        <h3>Tuna</h3>
+        <div class="price">6$</div>
+    </div>
+    <div class="item">
+        <img src="images/salmon-temaki.jpg" alt="Salmon Temaki" />
+        <h3>Salmon</h3>
+        <div class="price">6$</div>
+    </div>
+    <div class="item">
+        <img src="images/crab-temaki.jpg" alt="Crab Temaki" />
+        <h3>Crab</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/shrimp-temaki.jpg" alt="Shrimp Temaki" />
+        <h3>Shrimp</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/hawaiian-temaki.jpg" alt="Hawaiian Temaki" />
+        <h3>Hawaiian</h3>
+        <div class="price">3$</div>
+    </div>
+    <div class="item">
+        <img src="images/california-temaki.jpg" alt="California Temaki" />
+        <h3>California</h3>
+        <div class="price">4$</div>
+    </div>
 </div>
 </section>
 
 <!-- URAMAKI & FUTOMAKI -->
 <section id="uramaki" class="menu-section">
-<h2 class="menu-title">أوراماكي و فوتو ماكي (4 قطع)</h2>
+<h2 class="menu-title">Uramaki & Futo Maki (4pcs)</h2>
 <div class="menu-grid">
-    <div class="item"><h3>Salmon - 4pcs</h3><div class="price">5$</div></div>
-    <div class="item"><h3>Crab - 4pcs</h3><div class="price">3.5$</div></div>
-    <div class="item"><h3>Tuna - 4pcs</h3><div class="price">3$</div></div>
-    <div class="item"><h3>Avocado - 4pcs</h3><div class="price">4.5$</div></div>
-    <div class="item"><h3>Mango - 4pcs</h3><div class="price">3.5$</div></div>
-    <div class="item"><h3>Cucumber - 4pcs</h3><div class="price">3$</div></div>
-    <div class="item"><h3>Shrimp - 4pcs</h3><div class="price">4.5$</div></div>
-    <div class="item"><h3>Hawaiian Futo Maki- 4pcs</h3>
-        <p>Filled with pineapple, carrots, avocado, cucumber and mango</p>
-        <div class="price">6$</div>
+    <div class="item">
+        <img src="images/salmon-uramaki.jpg" alt="Salmon Uramaki" />
+        <h3>Salmon - 4pcs</h3>
+        <div class="price">5$</div>
     </div>
-    <div class="item"><h3>Mixed Futo Maki- 4pcs</h3>
-        <p>Filled with tuna, shrimp, salmon, crab and topped with caviar</p>
-        <div class="price">7$</div>
+    <div class="item">
+        <img src="images/crab-uramaki.jpg" alt="Crab Uramaki" />
+        <h3>Crab - 4pcs</h3>
+        <div class="price">3.5$</div>
+    </div>
+    <div class="item">
+        <img src="images/tuna-uramaki.jpg" alt="Tuna Uramaki" />
+        <h3>Tuna - 4pcs</h3>
+        <div class="price">3$</div>
+    </div>
+    <div class="item">
+        <img src="images/avocado-uramaki.jpg" alt="Avocado Uramaki" />
+        <h3>Avocado - 4pcs</h3>
+        <div class="price">4.5$</div>
     </div>
 </div>
 </section>
 
 <!-- SASHIMI -->
 <section id="sashimi" class="menu-section">
-<h2 class="menu-title">ساسيمي (2 قطع)</h2>
+<h2 class="menu-title">Sashimi (2pcs)</h2>
 <div class="menu-grid">
-    <div class="item"><h3>Salmon Sashimi - 2pcs</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Tuna Sashimi - 2pcs</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Crab Sashimi - 2pcs</h3><div class="price">2.5$</div></div>
-    <div class="item"><h3>Shrimp Sashimi - 2pcs</h3><div class="price">3$</div></div>
+    <div class="item">
+        <img src="images/salmon-sashimi.jpg" alt="Salmon Sashimi" />
+        <h3>Salmon Sashimi - 2pcs</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/tuna-sashimi.jpg" alt="Tuna Sashimi" />
+        <h3>Tuna Sashimi - 2pcs</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/crab-sashimi.jpg" alt="Crab Sashimi" />
+        <h3>Crab Sashimi - 2pcs</h3>
+        <div class="price">2.5$</div>
+    </div>
+    <div class="item">
+        <img src="images/shrimp-sashimi.jpg" alt="Shrimp Sashimi" />
+        <h3>Shrimp Sashimi - 2pcs</h3>
+        <div class="price">3$</div>
+    </div>
 </div>
 </section>
 
 <!-- SUSHI -->
 <section id="sushi" class="menu-section">
-<h2 class="menu-title">سوشي (2 قطع)</h2>
+<h2 class="menu-title">Sushi (2pcs)</h2>
 <div class="menu-grid">
-    <div class="item"><h3>Salmon Sushi - 2pcs</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Tuna Sushi - 2pcs</h3><div class="price">4$</div></div>
-    <div class="item"><h3>Shrimp Sushi - 2pcs</h3><div class="price">3.5$</div></div>
-    <div class="item"><h3>Crab Sushi - 2pcs</h3><div class="price">2.5$</div></div>
+    <div class="item">
+        <img src="images/salmon-sushi.jpg" alt="Salmon Sushi" />
+        <h3>Salmon Sushi - 2pcs</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/tuna-sushi.jpg" alt="Tuna Sushi" />
+        <h3>Tuna Sushi - 2pcs</h3>
+        <div class="price">4$</div>
+    </div>
+    <div class="item">
+        <img src="images/shrimp-sushi.jpg" alt="Shrimp Sushi" />
+        <h3>Shrimp Sushi - 2pcs</h3>
+        <div class="price">3.5$</div>
+    </div>
+    <div class="item">
+        <img src="images/crab-sushi.jpg" alt="Crab Sushi" />
+        <h3>Crab Sushi - 2pcs</h3>
+        <div class="price">2.5$</div>
+    </div>
 </div>
 </section>
 
 <footer>
-© 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
+© 2025 SUSHI HIGHWAY — All Rights Reserved
 </footer>
 </body>
 </html>
