@@ -1,118 +1,204 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>المنيو | SUSHI HIGHWAY</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Cairo", sans-serif;
-            background: #fafafa;
-            color: #222;
-        }
-        header {
-            background: #ffffffcc;
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-        .logo img {
-            height: 55px;
-        }
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-        }
-        .menu-section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .menu-title {
-            font-size: 32px;
-            margin-bottom: 20px;
-            border-right: 6px solid #e63946;
-            padding-right: 10px;
-        }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,.05);
-            transition: .3s;
-        }
-        .item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(0,0,0,.1);
-        }
-        .item img {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
-        .item h3 {
-            margin: 0;
-            font-size: 20px;
-        }
-        .item p {
-            margin: 8px 0;
-            color: #555;
-        }
-        .price {
-            font-weight: bold;
-            color: #e63946;
-            font-size: 18px;
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: #fff;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منيو | SUSHI HIGHWAY</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Cairo", sans-serif;
+    background: #fafafa;
+    color: #222;
+}
+header {
+    background: #ffffffcc;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.logo img {
+    height: 55px;
+}
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+.menu-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+.menu-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    border-right: 6px solid #e63946;
+    padding-right: 10px;
+}
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    transition: .3s;
+}
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+.item h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #e63946;
+}
+.item p {
+    margin: 0 0 10px 0;
+    color: #555;
+}
+.price {
+    font-weight: bold;
+    color: #e63946;
+    font-size: 18px;
+}
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    background: #fff;
+    color: #666;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="SUSHI HIGHWAY Logo" />
-        </div>
-        <nav>
-            <a href="index.html">الصفحة الرئيسية</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo"><img src="logo.png" alt="SUSHI HIGHWAY Logo"></div>
+    <nav>
+        <a href="index.html">الصفحة الرئيسية</a>
+    </nav>
+</header>
 
-    <!-- قسم: الأطباق المميزة -->
-    <section id="special" class="menu-section">
-        <h2 class="menu-title">الأطباق المميزة</h2>
-        <div class="menu-grid">
-            <div class="item">
-                <img src="" alt="طبق مميز"/>
-                <h3>ميني سوشي بوت</h3>
-                <p>25 قطعة من السوشي المتنوعة</p>
-                <div class="price">$60</div>
-            </div>
-        </div>
-    </section>
+<!-- STARTERS -->
+<section id="starters" class="menu-section">
+<h2 class="menu-title">المقبلات</h2>
+<div class="menu-grid">
+    <div class="item"><h3>Edamame</h3><div class="price">5$</div></div>
+    <div class="item"><h3>Cheese Rolls</h3><div class="price">4.6$</div></div>
+    <div class="item"><h3>Spring Rolls</h3><div class="price">3.5$</div></div>
+</div>
+</section>
 
-    <!-- باقي الأقسام... (يمكن نسخها كما هي من كودك) -->
+<!-- SALADS -->
+<section id="salads" class="menu-section">
+<h2 class="menu-title">السلطات</h2>
+<div class="menu-grid">
+    <div class="item">
+        <h3>Crab Salad</h3>
+        <p>Crab mix 200g, avocado, mango, crispy topping</p>
+        <div class="price">12$</div>
+    </div>
+    <div class="item">
+        <h3>Salmon Salad</h3>
+        <p>Salmon 180g, avocado, mango, crispy topping</p>
+        <div class="price">16$</div>
+    </div>
+    <div class="item">
+        <h3>Shrimp Salad</h3>
+        <p>Shrimp 180g, avocado, mango, crispy topping</p>
+        <div class="price">15$</div>
+    </div>
+    <div class="item">
+        <h3>Tuna Salad</h3>
+        <p>Tuna 180g, avocado, mango, crispy topping</p>
+        <div class="price">16$</div>
+    </div>
+    <div class="item">
+        <h3>Mixed Sea Food Salad</h3>
+        <p>Crab, salmon, tuna, shrimp mix</p>
+        <div class="price">16$</div>
+    </div>
+    <div class="item">
+        <h3>Greek Salad</h3>
+        <div class="price">6$</div>
+    </div>
+    <div class="item">
+        <h3>Lebanese Salad</h3>
+        <div class="price">5.5$</div>
+    </div>
+</div>
+</section>
 
-    <footer>
-        © 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
-    </footer>
+<!-- TEMAKI -->
+<section id="temaki" class="menu-section">
+<h2 class="menu-title">تيمّاكي (1 قطعة)</h2>
+<div class="menu-grid">
+    <div class="item"><h3>Tuna</h3><div class="price">6$</div></div>
+    <div class="item"><h3>Salmon</h3><div class="price">6$</div></div>
+    <div class="item"><h3>Crab</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Shrimp</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Hawaiian</h3><div class="price">3$</div></div>
+    <div class="item"><h3>California</h3><div class="price">4$</div></div>
+</div>
+</section>
+
+<!-- URAMAKI & FUTOMAKI -->
+<section id="uramaki" class="menu-section">
+<h2 class="menu-title">أوراماكي و فوتو ماكي (4 قطع)</h2>
+<div class="menu-grid">
+    <div class="item"><h3>Salmon - 4pcs</h3><div class="price">5$</div></div>
+    <div class="item"><h3>Crab - 4pcs</h3><div class="price">3.5$</div></div>
+    <div class="item"><h3>Tuna - 4pcs</h3><div class="price">3$</div></div>
+    <div class="item"><h3>Avocado - 4pcs</h3><div class="price">4.5$</div></div>
+    <div class="item"><h3>Mango - 4pcs</h3><div class="price">3.5$</div></div>
+    <div class="item"><h3>Cucumber - 4pcs</h3><div class="price">3$</div></div>
+    <div class="item"><h3>Shrimp - 4pcs</h3><div class="price">4.5$</div></div>
+    <div class="item"><h3>Hawaiian Futo Maki- 4pcs</h3>
+        <p>Filled with pineapple, carrots, avocado, cucumber and mango</p>
+        <div class="price">6$</div>
+    </div>
+    <div class="item"><h3>Mixed Futo Maki- 4pcs</h3>
+        <p>Filled with tuna, shrimp, salmon, crab and topped with caviar</p>
+        <div class="price">7$</div>
+    </div>
+</div>
+</section>
+
+<!-- SASHIMI -->
+<section id="sashimi" class="menu-section">
+<h2 class="menu-title">ساسيمي (2 قطع)</h2>
+<div class="menu-grid">
+    <div class="item"><h3>Salmon Sashimi - 2pcs</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Tuna Sashimi - 2pcs</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Crab Sashimi - 2pcs</h3><div class="price">2.5$</div></div>
+    <div class="item"><h3>Shrimp Sashimi - 2pcs</h3><div class="price">3$</div></div>
+</div>
+</section>
+
+<!-- SUSHI -->
+<section id="sushi" class="menu-section">
+<h2 class="menu-title">سوشي (2 قطع)</h2>
+<div class="menu-grid">
+    <div class="item"><h3>Salmon Sushi - 2pcs</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Tuna Sushi - 2pcs</h3><div class="price">4$</div></div>
+    <div class="item"><h3>Shrimp Sushi - 2pcs</h3><div class="price">3.5$</div></div>
+    <div class="item"><h3>Crab Sushi - 2pcs</h3><div class="price">2.5$</div></div>
+</div>
+</section>
+
+<footer>
+© 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
+</footer>
 </body>
 </html>
