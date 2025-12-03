@@ -8,34 +8,66 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    background: #fafafa;
+    background: radial-gradient(circle at top, #ffe8e8, #fafafa);
     color: #222;
 }
 header {
-    background: #fff;
+    background: linear-gradient(90deg, #e63946, #f3722c);
     padding: 15px 30px;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     z-index: 1000;
 }
 header h1 {
     margin: 0;
     font-size: 24px;
-    color: #e63946;
+    color: #fff;
 }
+
+/* container */
 .menu-section {
     max-width: 900px;
     margin: 20px auto;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     overflow: hidden;
     margin-bottom: 15px;
+    border-left: 6px solid transparent;
 }
+
+/* colored borders لكل قسم */
+.menu-section.starters     { border-left-color:#ffb703; }
+.menu-section.salads       { border-left-color:#2a9d8f; }
+.menu-section.temaki       { border-left-color:#457b9d; }
+.menu-section.hoso         { border-left-color:#e76f51; }
+.menu-section.futo         { border-left-color:#6d597a; }
+.menu-section.ura-tuna     { border-left-color:#219ebc; }
+.menu-section.ura-crab     { border-left-color:#f4a261; }
+.menu-section.ura-salmon   { border-left-color:#e63946; }
+.menu-section.ura-shrimp   { border-left-color:#8ac926; }
+.menu-section.sashimi      { border-left-color:#ffafcc; }
+.menu-section.sushi        { border-left-color:#118ab2; }
+.menu-section.duo          { border-left-color:#9c6644; }
+.menu-section.vege         { border-left-color:#55a630; }
+.menu-section.regina       { border-left-color:#ff6d00; }
+.menu-section.creamy       { border-left-color:#f15bb5; }
+.menu-section.platters     { border-left-color:#4361ee; }
+.menu-section.specialrolls { border-left-color:#b5179e; }
+.menu-section.boat-mini    { border-left-color:#ff9f1c; }
+.menu-section.boat-big     { border-left-color:#3a86ff; }
+.menu-section.pizza        { border-left-color:#d00000; }
+.menu-section.kumpir       { border-left-color:#ffb703; }
+.menu-section.pasta        { border-left-color:#6a4c93; }
+.menu-section.hotplates    { border-left-color:#fb5607; }
+.menu-section.drinks       { border-left-color:#00b4d8; }
+
+/* header لكل بلوك */
 .menu-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 20px;
     cursor: pointer;
     background: #f7f7f7;
@@ -45,9 +77,21 @@ header h1 {
 .menu-header:hover {
     background: #f0f0f0;
 }
+.menu-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.menu-header .icon {
+    font-size: 22px;
+}
 .menu-header .arrow {
     transition: transform 0.3s;
 }
+.menu-header.open {
+    background:#fff6f0;
+}
+
 .menu-content {
     display: none;
     padding: 10px 20px 20px 20px;
@@ -55,6 +99,7 @@ header h1 {
 .menu-item {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
+    line-height: 1.4;
 }
 .menu-item:last-child {
     border-bottom: none;
@@ -65,7 +110,7 @@ header h1 {
     color: #e63946;
 }
 .menu-subtitle {
-    margin-top: 10px;
+    margin-top: 12px;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
@@ -80,8 +125,14 @@ header h1 {
 </header>
 
 <!-- STARTERS -->
-<div class="menu-section">
-    <div class="menu-header">STARTERS <span class="arrow">&#9660;</span></div>
+<div class="menu-section starters">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥟</span>
+            <span>STARTERS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Edamame <span>5$</span></div>
         <div class="menu-item">Cheese Rolls <span>4.6$</span></div>
@@ -90,8 +141,14 @@ header h1 {
 </div>
 
 <!-- SALADS -->
-<div class="menu-section">
-    <div class="menu-header">SALADS <span class="arrow">&#9660;</span></div>
+<div class="menu-section salads">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥗</span>
+            <span>SALADS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Crab Salad <span>12$</span><br>(Shrimp 180g, avocado, mango, crispy topping)</div>
         <div class="menu-item">Salmon Salad <span>16$</span><br>(Salmon 180g, avocado, mango, crispy topping)</div>
@@ -104,8 +161,14 @@ header h1 {
 </div>
 
 <!-- TEMAKI -->
-<div class="menu-section">
-    <div class="menu-header">TEMAKI – 1 PC <span class="arrow">&#9660;</span></div>
+<div class="menu-section temaki">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍣</span>
+            <span>TEMAKI – 1 PC</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Tuna <span>6$</span></div>
         <div class="menu-item">Salmon <span>6$</span></div>
@@ -117,8 +180,14 @@ header h1 {
 </div>
 
 <!-- HOSO MAKI -->
-<div class="menu-section">
-    <div class="menu-header">HOSO MAKI – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section hoso">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍣</span>
+            <span>HOSO MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Salmon <span>5$</span></div>
         <div class="menu-item">Crab <span>4$</span></div>
@@ -131,8 +200,14 @@ header h1 {
 </div>
 
 <!-- FUTO MAKI -->
-<div class="menu-section">
-    <div class="menu-header">FUTO MAKI – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section futo">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍱</span>
+            <span>FUTO MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Hawaiian Futo Maki <span>6$</span></div>
         <div class="menu-item">Mixed Futo Maki <span>7$</span></div>
@@ -140,8 +215,14 @@ header h1 {
 </div>
 
 <!-- URAMAKI TUNA -->
-<div class="menu-section">
-    <div class="menu-header">URAMAKI TUNA – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section ura-tuna">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🐟</span>
+            <span>URAMAKI TUNA – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Volcano Tuna <span>7$</span></div>
         <div class="menu-item">Tuna Wrap <span>7$</span></div>
@@ -149,8 +230,14 @@ header h1 {
 </div>
 
 <!-- URAMAKI CRAB -->
-<div class="menu-section">
-    <div class="menu-header">URAMAKI CRAB – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section ura-crab">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🦀</span>
+            <span>URAMAKI CRAB – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">California <span>3$</span></div>
         <div class="menu-item">California Ebiko <span>5$</span></div>
@@ -165,8 +252,14 @@ header h1 {
 </div>
 
 <!-- URAMAKI SALMON -->
-<div class="menu-section">
-    <div class="menu-header">URAMAKI SALMON – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section ura-salmon">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🐠</span>
+            <span>URAMAKI SALMON – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Volcano Salmon <span>8$</span></div>
         <div class="menu-item">Salmon Ebiko <span>7$</span></div>
@@ -179,8 +272,14 @@ header h1 {
 </div>
 
 <!-- URAMAKI SHRIMP -->
-<div class="menu-section">
-    <div class="menu-header">URAMAKI SHRIMP – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section ura-shrimp">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🦐</span>
+            <span>URAMAKI SHRIMP – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Volcano Shrimp <span>5$</span></div>
         <div class="menu-item">Shrimp Crispy <span>5$</span></div>
@@ -191,8 +290,14 @@ header h1 {
 </div>
 
 <!-- SASHIMI -->
-<div class="menu-section">
-    <div class="menu-header">SASHIMI – 2 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section sashimi">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍥</span>
+            <span>SASHIMI – 2 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Salmon <span>4$</span></div>
         <div class="menu-item">Tuna <span>4$</span></div>
@@ -202,8 +307,14 @@ header h1 {
 </div>
 
 <!-- SUSHI -->
-<div class="menu-section">
-    <div class="menu-header">SUSHI – 2 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section sushi">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍣</span>
+            <span>SUSHI – 2 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Salmon Sushi <span>4$</span></div>
         <div class="menu-item">Tuna Sushi <span>4$</span></div>
@@ -213,8 +324,14 @@ header h1 {
 </div>
 
 <!-- DUO MAKI -->
-<div class="menu-section">
-    <div class="menu-header">DUO MAKI – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section duo">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🧡</span>
+            <span>DUO MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             Salmon, Tuna, Avocado roll wrapped in Salmon and Tuna
@@ -224,8 +341,14 @@ header h1 {
 </div>
 
 <!-- VEGETARIAN MAKI -->
-<div class="menu-section">
-    <div class="menu-header">VEGETARIAN MAKI – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section vege">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥒</span>
+            <span>VEGETARIAN MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             Mango, Avocado, Cucumber, Lettuce roll wrapped in Parsley
@@ -235,8 +358,14 @@ header h1 {
 </div>
 
 <!-- REGINA SPECIAL MAKI -->
-<div class="menu-section">
-    <div class="menu-header">REGINA SPECIAL MAKI – 4 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section regina">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">👑</span>
+            <span>REGINA SPECIAL MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             Grilled Salmon wrapped in Avocado
@@ -246,8 +375,14 @@ header h1 {
 </div>
 
 <!-- CREAMY / SMOKED / SALMON CRAB MAKI -->
-<div class="menu-section">
-    <div class="menu-header">CREAMY / SMOKED / SALMON CRAB MAKI <span class="arrow">&#9660;</span></div>
+<div class="menu-section creamy">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">💮</span>
+            <span>CREAMY / SMOKED / SALMON CRAB MAKI</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             CREAMY SHRIMP – 4 PCS <span>5.5$</span><br>
@@ -265,8 +400,14 @@ header h1 {
 </div>
 
 <!-- PLATTERS -->
-<div class="menu-section">
-    <div class="menu-header">PLATTERS – 12 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section platters">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍱</span>
+            <span>PLATTERS – 12 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             <strong>Crab Mix – 12 pcs</strong> <span>12$</span><br>
@@ -301,8 +442,14 @@ header h1 {
 </div>
 
 <!-- SPECIAL ROLLS -->
-<div class="menu-section">
-    <div class="menu-header">SPECIAL ROLLS <span class="arrow">&#9660;</span></div>
+<div class="menu-section specialrolls">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🔥</span>
+            <span>SPECIAL ROLLS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Dynamite Shrimp Roll – 8 pcs <span>12$</span></div>
         <div class="menu-item">Dragon Roll – 8 pcs <span>10$</span></div>
@@ -310,8 +457,14 @@ header h1 {
 </div>
 
 <!-- MINI BOAT -->
-<div class="menu-section">
-    <div class="menu-header">MINI BOAT – 25 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section boat-mini">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">⛵</span>
+            <span>MINI BOAT – 25 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             3 Crispy Crazy Crab<br>
@@ -329,8 +482,14 @@ header h1 {
 </div>
 
 <!-- BIG BOAT -->
-<div class="menu-section">
-    <div class="menu-header">BIG BOAT – 50 PCS <span class="arrow">&#9660;</span></div>
+<div class="menu-section boat-big">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🚤</span>
+            <span>BIG BOAT – 50 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             2 pcs Tuna Sashimi<br>
@@ -354,8 +513,14 @@ header h1 {
 </div>
 
 <!-- ITALIAN PIZZA -->
-<div class="menu-section">
-    <div class="menu-header">ITALIAN PIZZA <span class="arrow">&#9660;</span></div>
+<div class="menu-section pizza">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍕</span>
+            <span>ITALIAN PIZZA</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Vegetarian Pizza <span>10$</span></div>
         <div class="menu-item">Margharita Pizza <span>10$</span></div>
@@ -366,8 +531,14 @@ header h1 {
 </div>
 
 <!-- KUMPIR POTATO -->
-<div class="menu-section">
-    <div class="menu-header">KUMPIR POTATO <span class="arrow">&#9660;</span></div>
+<div class="menu-section kumpir">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥔</span>
+            <span>KUMPIR POTATO</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">
             Loaded Kumpir (mushroom, cabbage, pickles, corn, carrots, olives)
@@ -380,8 +551,14 @@ header h1 {
 </div>
 
 <!-- PASTA -->
-<div class="menu-section">
-    <div class="menu-header">PASTA <span class="arrow">&#9660;</span></div>
+<div class="menu-section pasta">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍝</span>
+            <span>PASTA</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Chicken Fettuccine <span>12.5$</span></div>
         <div class="menu-item">Pasta Bolognese <span>11$</span></div>
@@ -392,8 +569,14 @@ header h1 {
 </div>
 
 <!-- HOT PLATES -->
-<div class="menu-section">
-    <div class="menu-header">HOT PLATES <span class="arrow">&#9660;</span></div>
+<div class="menu-section hotplates">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍗</span>
+            <span>HOT PLATES</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-item">Chicken Scallop (with fries &amp; salad) <span>11$</span></div>
         <div class="menu-item">Crispy Chicken Strips (with fries &amp; salad) <span>9$</span></div>
@@ -406,8 +589,14 @@ header h1 {
 </div>
 
 <!-- DRINKS -->
-<div class="menu-section">
-    <div class="menu-header">DRINKS <span class="arrow">&#9660;</span></div>
+<div class="menu-section drinks">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥤</span>
+            <span>DRINKS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
     <div class="menu-content">
         <div class="menu-subtitle">Beverages</div>
         <div class="menu-item">Water (Big) <span>1.1$</span></div>
@@ -465,6 +654,7 @@ headers.forEach(header => {
     header.addEventListener('click', () => {
         const content = header.nextElementSibling;
         const arrow = header.querySelector('.arrow');
+        header.classList.toggle('open');
         if (content.style.display === "block") {
             content.style.display = "none";
             arrow.style.transform = "rotate(0deg)";
