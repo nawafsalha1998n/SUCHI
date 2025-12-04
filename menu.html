@@ -10,7 +10,7 @@ body {
     margin: 0;
     background: radial-gradient(circle at top, #ffe8e8, #fafafa);
     color: #222;
-    /* updated padding to match topbar height */
+    /* top padding to avoid content covered by fixed topbar */
     padding-top: 56px;
 }
 
@@ -25,20 +25,16 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     z-index: 1200;
 }
-
-/* center the inner content and keep layout balanced */
 .topbar .container {
-    max-width: 1100px; /* change as needed */
+    max-width: 1100px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* brand left, icons right */
+    justify-content: space-between;
     padding: 0 18px;
     gap: 12px;
 }
-
-/* brand on the left (logo or text) */
 .topbar .brand {
     display: flex;
     align-items: center;
@@ -60,15 +56,7 @@ body {
     font-size: 18px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
-
-/* small circular icon buttons group on the right */
-.topbar .socials {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* icon buttons */
+.topbar .socials { display:flex; align-items:center; gap:10px; }
 .topbar a.social {
     display: inline-flex;
     align-items: center;
@@ -82,26 +70,10 @@ body {
     transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
     opacity: 0.98;
 }
+.topbar a.social.whatsapp { background: #25D366; }
+.topbar a.social.instagram { background: radial-gradient(circle at 30% 10%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.topbar a.social:hover, .topbar a.social:focus { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); opacity:1; }
 
-/* WhatsApp specific */
-.topbar a.social.whatsapp {
-    background: #25D366;
-}
-
-/* Instagram gradient */
-.topbar a.social.instagram {
-    background: radial-gradient(circle at 30% 10%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-
-/* hover/focus */
-.topbar a.social:hover,
-.topbar a.social:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    opacity: 1;
-}
-
-/* accessible hidden label for small screens if needed */
 .visually-hidden {
     position: absolute !important;
     height: 1px; width: 1px;
@@ -110,22 +82,18 @@ body {
     white-space: nowrap;
 }
 
-/* header: push down under topbar */
+/* header below the topbar */
 header {
     background: linear-gradient(90deg, #e63946, #f3722c);
     padding: 15px 30px;
     position: sticky;
-    top: 56px; /* so header sticks below the topbar */
+    top: 56px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     z-index: 1000;
 }
-header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #fff;
-}
+header h1 { margin:0; font-size:24px; color:#fff; }
 
-/* container */
+/* menu sections */
 .menu-section {
     max-width: 900px;
     margin: 20px auto;
@@ -136,8 +104,6 @@ header h1 {
     margin-bottom: 15px;
     border-left: 6px solid transparent;
 }
-
-/* colored borders لكل قسم */
 .menu-section.starters     { border-left-color:#ffb703; }
 .menu-section.salads       { border-left-color:#2a9d8f; }
 .menu-section.temaki       { border-left-color:#457b9d; }
@@ -163,7 +129,6 @@ header h1 {
 .menu-section.hotplates    { border-left-color:#fb5607; }
 .menu-section.drinks       { border-left-color:#00b4d8; }
 
-/* header لكل بلوك */
 .menu-header {
     display: flex;
     justify-content: space-between;
@@ -174,60 +139,24 @@ header h1 {
     font-weight: bold;
     font-size: 18px;
 }
-.menu-header:hover {
-    background: #f0f0f0;
-}
-.menu-header .left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.menu-header .icon {
-    font-size: 22px;
-}
-.menu-header .arrow {
-    transition: transform 0.3s;
-}
-.menu-header.open {
-    background:#fff6f0;
-}
+.menu-header:hover { background:#f0f0f0; }
+.menu-header .left { display:flex; align-items:center; gap:10px; }
+.menu-header .icon { font-size:22px; }
+.menu-header .arrow { transition: transform 0.3s; }
+.menu-header.open { background:#fff6f0; }
 
-.menu-content {
-    display: none;
-    padding: 10px 20px 20px 20px;
-}
-.menu-item {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    line-height: 1.4;
-}
-.menu-item:last-child {
-    border-bottom: none;
-}
-.menu-item span {
-    float: right;
-    font-weight: bold;
-    color: #e63946;
-}
-.menu-subtitle {
-    margin-top: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #555;
-}
+.menu-content { display:none; padding:10px 20px 20px 20px; }
+.menu-item { padding: 8px 0; border-bottom: 1px solid #eee; line-height:1.4; }
+.menu-item:last-child { border-bottom:none; }
+.menu-item span { float: right; font-weight:bold; color:#e63946; }
+.menu-subtitle { margin-top:12px; font-weight:bold; text-transform:uppercase; font-size:14px; color:#555; }
 
-/* Responsive tweaks */
+/* responsive */
 @media (max-width: 480px) {
-    .topbar {
-        padding: 6px 10px;
-    }
-    .topbar a.social {
-        width: 34px;
-        height: 34px;
-    }
-    body { padding-top: 96px; } /* make more room for stacked header on small screens */
-    header { padding: 12px 16px; font-size: 20px; top: 48px; }
+    .topbar { padding:6px 10px; }
+    .topbar a.social { width:34px; height:34px; }
+    body { padding-top: 96px; }
+    header { padding:12px 16px; font-size:20px; top:48px; }
 }
 </style>
 </head>
@@ -236,16 +165,13 @@ header h1 {
 <!-- Fixed top social bar -->
 <div class="topbar" aria-hidden="false">
   <div class="container">
-    <!-- Left: small brand/logo -->
     <a class="brand" href="/">
       <span class="logo">🍣</span>
       <span>SUSHI HIGHWAY</span>
     </a>
 
-    <!-- Right: social icons -->
     <div class="socials" role="navigation" aria-label="Social links">
       <a class="social whatsapp" href="https://wa.me/9613823005" target="_blank" rel="noopener noreferrer" aria-label="واتساب" title="واتساب">
-        <!-- WhatsApp SVG -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <path fill="white" d="M20.52 3.48A11.86 11.86 0 0012 0C5.37 0 .02 5.41.02 12.07c0 2.12.55 4.16 1.6 5.96L0 24l6.18-1.6A11.93 11.93 0 0012 24c6.63 0 12-5.41 12-11.93 0-3.2-1.24-6.2-3.48-8.57zM12 21.6a9.41 9.41 0 01-5.1-1.44l-.36-.21-3.67.95.98-3.55-.23-.37A9.22 9.22 0 012.82 12C2.82 7.26 6.8 3.3 11.56 3.3c2.47 0 4.8.96 6.56 2.7 1.76 1.76 2.74 4.09 2.74 6.56 0 4.75-3.97 8.74-8.86 8.74z"/>
             <path fill="white" d="M17.3 14.2c-.27-.14-1.6-.8-1.85-.89-.25-.09-.43-.14-.61.14-.18.27-.7.89-.86 1.07-.16.18-.33.2-.6.07-.27-.13-1.14-.42-2.17-1.33-.8-.71-1.34-1.59-1.5-1.86-.15-.27-.02-.41.12-.55.12-.12.27-.33.41-.5.14-.17.18-.28.27-.46.09-.18.04-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.18 0-.48.07-.73.34-.25.27-.94.92-.94 2.25s.96 2.61 1.09 2.79c.13.18 1.88 2.88 4.56 3.95 3.15 1.22 3.15.81 3.71.76.28-.02.91-.38 1.04-.75.13-.37.13-.68.09-.75-.05-.07-.18-.11-.4-.2z"/>
@@ -253,7 +179,6 @@ header h1 {
       </a>
 
       <a class="social instagram" href="https://www.instagram.com/sushi.highway?igsh=cGpyeHdwYmo1NzNv" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" title="إنستغرام">
-        <!-- Instagram SVG (white glyph) -->
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <path fill="white" d="M12 7.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 7.9a3.1 3.1 0 110-6.2 3.1 3.1 0 010 6.2z"/>
             <path fill="white" d="M17.9 6.5a1.12 1.12 0 11-2.24 0 1.12 1.12 0 012.24 0z"/>
@@ -309,7 +234,7 @@ header h1 {
     <div class="menu-header">
         <div class="left">
             <span class="icon">🍣</span>
-            <span>TEMAKI ��� 1 PC</span>
+            <span>TEMAKI – 1 PC</span>
         </div>
         <span class="arrow">&#9660;</span>
     </div>
@@ -425,11 +350,397 @@ header h1 {
         <span class="arrow">&#9660;</span>
     </div>
     <div class="menu-content">
-        <div class="menu-item">Shrimp Volcano <span>8$</span></div>
-        <div class="menu-item">Shrimp Supreme <span>6$</span></div>
-        <div class="menu-item">Shrimp Tempura <span>6.5$</span></div>
+        <div class="menu-item">Volcano Shrimp <span>5$</span></div>
+        <div class="menu-item">Shrimp Crispy <span>5$</span></div>
+        <div class="menu-item">Shrimp Mango <span>5$</span></div>
+        <div class="menu-item">Fruity Shrimp <span>5$</span></div>
+        <div class="menu-item">Shrimp Ebiko <span>5$</span></div>
     </div>
 </div>
+
+<!-- SASHIMI -->
+<div class="menu-section sashimi">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍥</span>
+            <span>SASHIMI – 2 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Salmon <span>4$</span></div>
+        <div class="menu-item">Tuna <span>4$</span></div>
+        <div class="menu-item">Crab <span>2.5$</span></div>
+        <div class="menu-item">Shrimp <span>4$</span></div>
+    </div>
+</div>
+
+<!-- SUSHI -->
+<div class="menu-section sushi">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍣</span>
+            <span>SUSHI – 2 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Salmon Sushi <span>4$</span></div>
+        <div class="menu-item">Tuna Sushi <span>4$</span></div>
+        <div class="menu-item">Shrimp Sushi <span>3$</span></div>
+        <div class="menu-item">Crab Sushi <span>2.5$</span></div>
+    </div>
+</div>
+
+<!-- DUO MAKI -->
+<div class="menu-section duo">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🧡</span>
+            <span>DUO MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            Salmon, Tuna, Avocado roll wrapped in Salmon and Tuna
+            <span>6.5$</span>
+        </div>
+    </div>
+</div>
+
+<!-- VEGETARIAN MAKI -->
+<div class="menu-section vege">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥒</span>
+            <span>VEGETARIAN MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            Mango, Avocado, Cucumber, Lettuce roll wrapped in Parsley
+            <span>4$</span>
+        </div>
+    </div>
+</div>
+
+<!-- REGINA SPECIAL MAKI -->
+<div class="menu-section regina">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">👑</span>
+            <span>REGINA SPECIAL MAKI – 4 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            Grilled Salmon wrapped in Avocado
+            <span>4.75$</span>
+        </div>
+    </div>
+</div>
+
+<!-- CREAMY / SMOKED / SALMON CRAB MAKI -->
+<div class="menu-section creamy">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">💮</span>
+            <span>CREAMY / SMOKED / SALMON CRAB MAKI</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            CREAMY SHRIMP – 4 PCS <span>5.5$</span><br>
+            Shrimp mixed with Philadelphia and avocado wrapped in avocado.
+        </div>
+        <div class="menu-item">
+            SMOKED SALMON MAKI – 4 PCS <span>6.5$</span><br>
+            Smoked Salmon and avocado roll wrapped in Smoked Salmon.
+        </div>
+        <div class="menu-item">
+            SALMON CRAB MAKI – 4 PCS <span>6.5$</span><br>
+            Salmon and Mango roll wrapped in Crab.
+        </div>
+    </div>
+</div>
+
+<!-- PLATTERS -->
+<div class="menu-section platters">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍱</span>
+            <span>PLATTERS – 12 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            <strong>Crab Mix – 12 pcs</strong> <span>12$</span><br>
+            crazy maki – 4 pcs<br>
+            Avocado Wrap – 4 pcs<br>
+            Fruity Crab – 4 pcs
+        </div>
+        <div class="menu-item">
+            <strong>Salmon Mix – 12 pcs</strong> <span>18$</span><br>
+            Salmon Maki – 4 pcs<br>
+            Fruity Salmon – 4 pcs<br>
+            Volcano Salmon – 4 pcs<br>
+            Salmon Wrap – 4 pcs
+        </div>
+        <div class="menu-item">
+            <strong>Shrimp Mix – 12 pcs</strong> <span>14$</span><br>
+            Shrimp Volcano – 4 pcs<br>
+            Shrimp Mango – 4 pcs<br>
+            Shrimp Ebiko – 4 pcs
+        </div>
+        <div class="menu-item">
+            <strong>Special Mix – 12 pcs</strong> <span>17$</span><br>
+            Avocado Wrap – 4 pcs<br>
+            Volcano Salmon – 4 pcs<br>
+            Fruity Shrimp – 4 pcs
+        </div>
+        <div class="menu-item">
+            <strong>Special Sashimi Mix – 8 pcs</strong> <span>13$</span><br>
+            Salmon, Tuna, Shrimp, Crab
+        </div>
+    </div>
+</div>
+
+<!-- SPECIAL ROLLS -->
+<div class="menu-section specialrolls">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🔥</span>
+            <span>SPECIAL ROLLS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Dynamite Shrimp Roll – 8 pcs <span>12$</span></div>
+        <div class="menu-item">Dragon Roll – 8 pcs <span>10$</span></div>
+    </div>
+</div>
+
+<!-- MINI BOAT -->
+<div class="menu-section boat-mini">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">⛵</span>
+            <span>MINI BOAT – 25 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            3 Crispy Crazy Crab<br>
+            3 Volcano Salmon<br>
+            3 Philadelphia Salmon<br>
+            3 Fruity Crab<br>
+            3 Volcano Shrimp<br>
+            3 California<br>
+            3 Ebiko Shrimp<br>
+            2 Sashimi<br>
+            2 Sashimi Sushi
+            <span>32$</span>
+        </div>
+    </div>
+</div>
+
+<!-- BIG BOAT -->
+<div class="menu-section boat-big">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🚤</span>
+            <span>BIG BOAT – 50 PCS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            2 pcs Tuna Sashimi<br>
+            2 pcs Shrimp Sashimi<br>
+            2 pcs Crab Sashimi<br>
+            4 pcs Salmon Sashimi<br>
+            4 pcs Crazy Crab<br>
+            4 pcs Fruity Crab<br>
+            4 pcs Volcano Shrimp<br>
+            4 pcs Salmon Wrap<br>
+            4 pcs Avocado Crab<br>
+            4 pcs Crunchy Crab<br>
+            4 pcs Volcano Salmon<br>
+            4 pcs California<br>
+            4 pcs Salmon Sushi<br>
+            2 pcs Tuna Sushi<br>
+            4 pcs California Ebiko
+            <span>60$</span>
+        </div>
+    </div>
+</div>
+
+<!-- ITALIAN PIZZA -->
+<div class="menu-section pizza">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍕</span>
+            <span>ITALIAN PIZZA</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Vegetarian Pizza <span>10$</span></div>
+        <div class="menu-item">Margharita Pizza <span>10$</span></div>
+        <div class="menu-item">Shrimp Pizza <span>12$</span></div>
+        <div class="menu-item">Pepperoni Pizza <span>12$</span></div>
+        <div class="menu-item">Smoked Salmon Pizza <span>14$</span></div>
+    </div>
+</div>
+
+<!-- KUMPIR POTATO -->
+<div class="menu-section kumpir">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥔</span>
+            <span>KUMPIR POTATO</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">
+            Loaded Kumpir (mushroom, cabbage, pickles, corn, carrots, olives)
+            <span>7$</span>
+        </div>
+        <div class="menu-item">Add-ons: Mortadella <span>1.5$</span></div>
+        <div class="menu-item">Add-ons: Chicken <span>1.5$</span></div>
+        <div class="menu-item">Add-ons: Shrimp <span>2$</span></div>
+    </div>
+</div>
+
+<!-- PASTA -->
+<div class="menu-section pasta">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍝</span>
+            <span>PASTA</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Chicken Fettuccine <span>12.5$</span></div>
+        <div class="menu-item">Pasta Bolognese <span>11$</span></div>
+        <div class="menu-item">Pasta Arrabiata <span>6.5$</span></div>
+        <div class="menu-item">Shrimp Pasta <span>12.5$</span></div>
+        <div class="menu-item">Pasta al pesto <span>8$</span></div>
+    </div>
+</div>
+
+<!-- HOT PLATES -->
+<div class="menu-section hotplates">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🍗</span>
+            <span>HOT PLATES</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-item">Chicken Scallop (with fries &amp; salad) <span>11$</span></div>
+        <div class="menu-item">Crispy Chicken Strips (with fries &amp; salad) <span>9$</span></div>
+        <div class="menu-item">Chicken Burger (with fries &amp; salad) <span>9$</span></div>
+        <div class="menu-item">Beef Burger (with fries &amp; salad) <span>11$</span></div>
+        <div class="menu-item">Shrimp Tempura (with fries &amp; salad) <span>12$</span></div>
+        <div class="menu-item">Grilled Salmon (with vegetables) <span>25$</span></div>
+        <div class="menu-item">Fries <span>2$</span></div>
+    </div>
+</div>
+
+<!-- DRINKS -->
+<div class="menu-section drinks">
+    <div class="menu-header">
+        <div class="left">
+            <span class="icon">🥤</span>
+            <span>DRINKS</span>
+        </div>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="menu-content">
+        <div class="menu-subtitle">Beverages</div>
+        <div class="menu-item">Water (Big) <span>1.1$</span></div>
+        <div class="menu-item">Water (Small) <span>0.5$</span></div>
+        <div class="menu-item">Pepsi <span>1.75$</span></div>
+        <div class="menu-item">7up <span>1.75$</span></div>
+        <div class="menu-item">Mirinda <span>1.75$</span></div>
+
+        <div class="menu-subtitle">Fresh Juice</div>
+        <div class="menu-item">Orange <span>3.7$</span></div>
+        <div class="menu-item">Strawberry <span>3.7$</span></div>
+        <div class="menu-item">Carrot <span>3.75$</span></div>
+        <div class="menu-item">Lemonade <span>2.65$</span></div>
+        <div class="menu-item">Mango <span>4.2$</span></div>
+        <div class="menu-item">Minted Lemonade <span>2.85$</span></div>
+
+        <div class="menu-subtitle">Milkshake</div>
+        <div class="menu-item">Strawberry <span>4.4$</span></div>
+        <div class="menu-item">Kinder <span>4.4$</span></div>
+        <div class="menu-item">Chocolate <span>4.4$</span></div>
+        <div class="menu-item">Oreo <span>4.4$</span></div>
+        <div class="menu-item">Caramel <span>4.4$</span></div>
+
+        <div class="menu-subtitle">Smoothie</div>
+        <div class="menu-item">Strawberry <span>3.4$</span></div>
+        <div class="menu-item">Mango <span>3.4$</span></div>
+        <div class="menu-item">Peach <span>3.3$</span></div>
+        <div class="menu-item">Passion <span>3.4$</span></div>
+        <div class="menu-item">Mixed Berries <span>3.4$</span></div>
+
+        <div class="menu-subtitle">Mojito</div>
+        <div class="menu-item">Peach <span>3.1$</span></div>
+        <div class="menu-item">Passion <span>3.1$</span></div>
+        <div class="menu-item">Pomegranate <span>3.1$</span></div>
+        <div class="menu-item">Mango <span>3.1$</span></div>
+        <div class="menu-item">Blue Hawaii <span>3.1$</span></div>
+
+        <div class="menu-subtitle">Hot Drinks</div>
+        <div class="menu-item">Espresso <span>1.5$</span></div>
+        <div class="menu-item">Double Espresso <span>1.5$</span></div>
+        <div class="menu-item">Nescafe <span>1.9$</span></div>
+        <div class="menu-item">Cappuccino <span>1.9$</span></div>
+        <div class="menu-item">Caffe Latte (caramel / chocolate / hazelnut) <span>2.85$</span></div>
+        <div class="menu-item">Hot Chocolate <span>3.3$</span></div>
+        <div class="menu-item">Americano <span>1.9$</span></div>
+        <div class="menu-item">Flat White <span>2.2$</span></div>
+        <div class="menu-item">Tea (Black, Green, Herbal) <span>1.8$</span></div>
+    </div>
+</div>
+
+<script>
+// Make toggle work reliably: initialize closed, then open/close on click
+document.addEventListener('DOMContentLoaded', function () {
+    const headers = document.querySelectorAll('.menu-header');
+    headers.forEach(header => {
+        // ensure content hidden initially (in case CSS was overridden)
+        const content = header.nextElementSibling;
+        if (content) content.style.display = 'none';
+
+        header.addEventListener('click', () => {
+            const arrow = header.querySelector('.arrow');
+            const isOpen = header.classList.contains('open');
+            if (isOpen) {
+                header.classList.remove('open');
+                if (content) content.style.display = 'none';
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            } else {
+                header.classList.add('open');
+                if (content) content.style.display = 'block';
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
