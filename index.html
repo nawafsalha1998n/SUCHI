@@ -39,35 +39,32 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
-    padding: 20px 40px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #eee;
 }
-.logo img { height: 80px; }
-nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 18px; }
+.logo img { height: 60px; }
 
-/* أزرار اللغة */
+/* أزرار اللغة بالأعلام الافتراضية */
 .language-switcher {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     align-items: center;
 }
 .lang-option {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 8px;
+    padding: 2px 6px;
+    border-radius: 6px;
     transition: background 0.3s, border 0.3s;
     border: 2px solid transparent;
 }
-.lang-option img {
-    width: 32px;
-    height: 20px;
-}
+.lang-option span { white-space: nowrap; font-size:14px; }
+.lang-option > .emoji { font-size:20px; }
 .lang-option.active {
     border: 2px solid #e63946;
     background: #fff;
@@ -131,20 +128,14 @@ window.addEventListener('load', () => {
     <div class="logo">
         <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" />
     </div>
-    <div style="display:flex; align-items:center; gap:20px;">
-        <nav>
-            <a href="menu.html" data-lang="ar" class="active">MENU</a>
-            <a href="menu.html" data-lang="en">MENU</a>
-        </nav>
-        <div class="language-switcher">
-            <div class="lang-option active" id="lang-ar">
-                <img src="lebanon.PNG" alt="Arabic">
-                <span>العربية</span>
-            </div>
-            <div class="lang-option" id="lang-en">
-                <img src="uk.PNG" alt="English">
-                <span>English</span>
-            </div>
+    <div class="language-switcher">
+        <div class="lang-option active" id="lang-ar" title="العربية">
+            <span class="emoji">🇱🇧</span>
+            <span>العربية</span>
+        </div>
+        <div class="lang-option" id="lang-en" title="English">
+            <span class="emoji">🇬🇧</span>
+            <span>English</span>
         </div>
     </div>
 </header>
