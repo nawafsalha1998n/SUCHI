@@ -5,42 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الرئيسية | SUSHI HIGHWAY</title>
     <style>
+        /* أزرار التواصل الاجتماعي */
         .social-buttons {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.social-buttons a {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: transform 0.25s;
-}
+        .social-buttons a {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.25s;
+        }
 
-.social-buttons a:hover {
-    transform: scale(1.12);
-}
+        .social-buttons a:hover {
+            transform: scale(1.12);
+        }
 
-.social-buttons img {
-    width: 28px;
-}
+        .social-buttons img {
+            width: 28px;
+        }
 
+        /* الجسم */
         body {
             margin: 0;
             font-family: "Cairo", sans-serif;
             background: #fafafa;
             color: #222;
         }
+
+        /* الهيدر */
         header {
             background: #ffffffcc;
             backdrop-filter: blur(8px);
@@ -53,9 +57,11 @@
             align-items: center;
             border-bottom: 1px solid #eee;
         }
+
         .logo img {
-            height: 60px;
+            height: 80px; /* حجم أكبر للوغو */
         }
+
         nav a {
             margin-left: 20px;
             text-decoration: none;
@@ -63,25 +69,30 @@
             font-size: 18px;
         }
 
-        /* قسم الهيرو مع فيديو عمودي */
+        /* قسم الهيرو */
         .hero {
             position: relative;
+            width: 100%;
             height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
+
         .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
+            width: auto;
+            height: 100%;
             min-width: 100%;
             min-height: 100%;
-            object-fit: cover; /* يغطي الهيرو مع اقتصاص الحواف */
+            object-fit: cover;
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -91,6 +102,7 @@
             background: rgba(0,0,0,0.45);
             z-index: 2;
         }
+
         .hero-content {
             position: relative;
             z-index: 3;
@@ -98,15 +110,18 @@
             color: #fff;
             padding: 0 20px;
         }
+
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 10px;
             font-weight: bold;
         }
+
         .hero-content p {
             font-size: 20px;
             margin-bottom: 25px;
         }
+
         .btn {
             padding: 12px 28px;
             background: #e63946;
@@ -116,12 +131,14 @@
             font-size: 18px;
         }
 
+        /* الأقسام */
         .section {
             max-width: 900px;
             margin: 60px auto;
             padding: 0 20px;
             text-align: center;
         }
+
         .section h2 {
             font-size: 32px;
             margin-bottom: 20px;
@@ -129,22 +146,27 @@
             display: inline-block;
             padding-right: 10px;
         }
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .feature-box {
             background: #fff;
             padding: 25px;
             border-radius: 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
         }
+
         .feature-box h3 {
             font-size: 22px;
             margin-bottom: 10px;
             color: #e63946;
         }
+
+        /* الفوتر */
         footer {
             text-align: center;
             padding: 30px;
@@ -153,7 +175,7 @@
             color: #666;
         }
 
-        /* Splash Screen */
+        /* شاشة البداية */
         #splash {
             position: fixed;
             top: 0;
@@ -167,15 +189,18 @@
             z-index: 9999;
             transition: opacity 0.8s ease;
         }
+
         #splash img {
             width: 180px;
             animation: fadeLogo 1.8s ease-in-out infinite;
         }
+
         @keyframes fadeLogo {
             0% { opacity: 0.4; }
             50% { opacity: 1; }
             100% { opacity: 0.4; }
         }
+
     </style>
 </head>
 <body>
@@ -206,9 +231,9 @@
 
     <!-- قسم الهيرو بالفيديو العمودي -->
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" poster="hero-fallback.jpg">
             <source src="sushi-vertical.mp4" type="video/mp4">
-            متصفحك لا يدعم الفيديو
+            <img src="hero-fallback.jpg" alt="SUSHI HIGHWAY">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -240,15 +265,15 @@
     <footer>
         © 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
     </footer>
-    <!-- أزرار التواصل -->
-<div class="social-buttons">
-    <a href="https://wa.me/9613823005" target="_blank">
-        <img src="whatsapp.png" alt="WhatsApp">
-    </a>
-    <a href="https://www.instagram.com/sushi.highway?igsh=cGpyeHdwYmo1NzNv" target="_blank">
-        <img src="instagram.png" alt="Instagram">
-    </a>
-</div>
 
+    <!-- أزرار التواصل -->
+    <div class="social-buttons">
+        <a href="https://wa.me/9613823005" target="_blank">
+            <img src="whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/sushi.highway?igsh=cGpyeHdwYmo1NzNv" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+    </div>
 </body>
 </html>
