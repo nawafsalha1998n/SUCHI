@@ -11,7 +11,7 @@ body {
     background: radial-gradient(circle at top, #ffe8e8, #fafafa);
     color: #222;
     /* top padding to avoid content covered by fixed topbar */
-    padding-top: 56px;
+    padding-top: 112px;
 }
 
 /* fixed top social bar */
@@ -86,11 +86,14 @@ body {
 header {
     background: linear-gradient(90deg, #e63946, #f3722c);
     padding: 15px 30px;
-    position: sticky;
-    top: 56px;
+    position: fixed;
+    top: 56px; /* تحت البار الأول */
+    left: 0;
+    right: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    z-index: 1000;
+    z-index: 1100; /* أعلى من كل المحتوى لكن أقل من topbar */
 }
+
 header h1 { margin:0; font-size:24px; color:#fff; }
 
 /* menu sections */
