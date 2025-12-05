@@ -740,11 +740,24 @@ header h1 { margin:0; font-size:24px; color:#fff; }
 </div>
 
 <script>
-// Make toggle work reliably: initialize closed, then open/close on click
+// === تحديث padding-body تلقائيًا حسب ارتفاع topbar وheader ===
+function updateBodyPadding() {
+    const topbar = document.querySelector('.topbar');
+    const header = document.querySelector('header');
+    if (!topbar || !header) return;
+
+    const topbarHeight = topbar.getBoundingClientRect().height;
+    const headerHeight = header.getBoundingClientRect().height;
+    document.body.style.paddingTop = (topbarHeight + headerHeight) + "px";
+}
+window.addEventListener('load', updateBodyPadding);
+window.addEventListener('resize', updateBodyPadding);
+setTimeout(updateBodyPadding, 500);
+
+// === كود فتح/غلق المنيو عند الضغط ===
 document.addEventListener('DOMContentLoaded', function () {
     const headers = document.querySelectorAll('.menu-header');
     headers.forEach(header => {
-        // ensure content hidden initially (in case CSS was overridden)
         const content = header.nextElementSibling;
         if (content) content.style.display = 'none';
 
