@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الرئيسية | SUSHI HIGHWAY</title>
     <style>
+        .social-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-buttons a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.25s;
+}
+
+.social-buttons a:hover {
+    transform: scale(1.12);
+}
+
+.social-buttons img {
+    width: 28px;
+}
+
         body {
             margin: 0;
             font-family: "Cairo", sans-serif;
@@ -210,5 +240,15 @@
     <footer>
         © 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
     </footer>
+    <!-- أزرار التواصل -->
+<div class="social-buttons">
+    <a href="https://wa.me/9613823005" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/sushi.highway?igsh=cGpyeHdwYmo1NzNv" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+    </a>
+</div>
+
 </body>
 </html>
