@@ -4,27 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الرئيسية | SUSHI HIGHWAY</title>
-    <style>
-        /* شريط اللغة */
-        .language-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #fff;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 20px;
-            border-bottom: 1px solid #ddd;
-            z-index: 1000;
-            font-family: "Cairo", sans-serif;
-            font-size: 18px;
-        }
-        .language-btn {
-            cursor: pointer;
-        }
 
+    <!-- Font Awesome للرموز -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pVfXhVUXQGqJjogtYqgRjTfw4m+Vq5GmlbO7ZgItZqfP8p2t6b5bFZsXkUJZQsv0cQ+G0X6WvD3TGvY0lN6K3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
         /* أزرار التواصل الاجتماعي */
         .social-buttons {
             position: fixed;
@@ -45,12 +29,14 @@
             align-items: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.25s;
+            font-size: 24px;
+            color: #25d366; /* اللون الافتراضي للواتساب */
+        }
+        .social-buttons a.instagram {
+            color: #C13584;
         }
         .social-buttons a:hover {
             transform: scale(1.12);
-        }
-        .social-buttons img {
-            width: 28px;
         }
 
         /* الجسم */
@@ -59,7 +45,6 @@
             font-family: "Cairo", sans-serif;
             background: #fafafa;
             color: #222;
-            padding-top: 40px; /* مساحة للشريط العلوي */
         }
 
         /* الهيدر */
@@ -67,7 +52,7 @@
             background: #ffffffcc;
             backdrop-filter: blur(8px);
             position: sticky;
-            top: 32px; /* تحت شريط اللغة */
+            top: 0;
             z-index: 10;
             padding: 20px 40px;
             display: flex;
@@ -75,14 +60,34 @@
             align-items: center;
             border-bottom: 1px solid #eee;
         }
+
         .logo img {
             height: 80px;
         }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             margin-left: 20px;
             text-decoration: none;
             color: #333;
             font-size: 18px;
+        }
+
+        /* أزرار اللغة */
+        .language-switch {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .language-btn {
+            cursor: pointer;
+            font-size: 24px;
+            user-select: none;
         }
 
         /* قسم الهيرو */
@@ -95,6 +100,7 @@
             align-items: center;
             overflow: hidden;
         }
+
         .hero-video {
             position: absolute;
             top: 50%;
@@ -107,6 +113,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -116,6 +123,7 @@
             background: rgba(0,0,0,0.45);
             z-index: 2;
         }
+
         .hero-content {
             position: relative;
             z-index: 3;
@@ -123,15 +131,18 @@
             color: #fff;
             padding: 0 20px;
         }
+
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 10px;
             font-weight: bold;
         }
+
         .hero-content p {
             font-size: 20px;
             margin-bottom: 25px;
         }
+
         .btn {
             padding: 12px 28px;
             background: #e63946;
@@ -148,6 +159,7 @@
             padding: 0 20px;
             text-align: center;
         }
+
         .section h2 {
             font-size: 32px;
             margin-bottom: 20px;
@@ -155,17 +167,20 @@
             display: inline-block;
             padding-right: 10px;
         }
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .feature-box {
             background: #fff;
             padding: 25px;
             border-radius: 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
         }
+
         .feature-box h3 {
             font-size: 22px;
             margin-bottom: 10px;
@@ -195,35 +210,30 @@
             z-index: 9999;
             transition: opacity 0.8s ease;
         }
+
         #splash img {
             width: 180px;
             animation: fadeLogo 1.8s ease-in-out infinite;
         }
+
         @keyframes fadeLogo {
             0% { opacity: 0.4; }
             50% { opacity: 1; }
             100% { opacity: 0.4; }
         }
 
-        /* إخفاء اللغة بشكل افتراضي */
-        .lang {
-            display: none;
-        }
+        /* النصوص ثنائية اللغة مخفية افتراضيًا */
+        .lang { display: none; }
     </style>
 </head>
 <body>
-    <!-- شريط اللغة -->
-    <div class="language-bar">
-        <span class="language-btn" data-lang="ar">🇱🇧 العربية</span>
-        <span class="language-btn" data-lang="en">🇬🇧 English</span>
-    </div>
-
     <!-- شاشة البداية -->
     <div id="splash">
         <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" />
     </div>
 
     <script>
+        // إخفاء شاشة البداية بعد التحميل
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash');
             setTimeout(() => {
@@ -232,25 +242,22 @@
             }, 1800);
         });
 
-        // تغيير اللغة
-        const langButtons = document.querySelectorAll('.language-btn');
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const lang = btn.getAttribute('data-lang');
-                document.querySelectorAll('.lang').forEach(el => {
-                    if(el.getAttribute('data-lang') === lang){
-                        el.style.display = '';
-                    } else {
-                        el.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // تعيين العربية افتراضياً عند التحميل
-        window.addEventListener('DOMContentLoaded', () => {
+        // وظيفة تبديل اللغة
+        function showLanguage(lang) {
             document.querySelectorAll('.lang').forEach(el => {
-                if(el.getAttribute('data-lang') === 'ar') el.style.display = '';
+                el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            showLanguage('ar'); // العربية افتراضياً
+
+            // أزرار اللغة
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const selectedLang = btn.getAttribute('data-lang');
+                    showLanguage(selectedLang);
+                });
             });
         });
     </script>
@@ -261,11 +268,18 @@
             <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" />
         </div>
         <nav>
-            <a href="menu.html"><span class="lang" data-lang="ar">MENU</span><span class="lang" data-lang="en">Menu</span></a>
+            <a href="menu.html">
+                <span class="lang" data-lang="ar">MENU</span>
+                <span class="lang" data-lang="en">Menu</span>
+            </a>
+            <div class="language-switch">
+                <span class="language-btn" data-lang="ar">🇱🇧</span>
+                <span class="language-btn" data-lang="en">🇬🇧</span>
+            </div>
         </nav>
     </header>
 
-    <!-- قسم الهيرو بالفيديو -->
+    <!-- قسم الهيرو بالفيديو العمودي -->
     <section class="hero">
         <video autoplay muted loop playsinline class="hero-video" poster="hero-fallback.jpg">
             <source src="sushi-vertical.mp4" type="video/mp4">
@@ -296,36 +310,48 @@
         </h2>
         <div class="features">
             <div class="feature-box">
-                <h3><span class="lang" data-lang="ar">أجود المكونات</span><span class="lang" data-lang="en">Finest Ingredients</span></h3>
-                <p><span class="lang" data-lang="ar">نعتمد على أجود أنواع الأسماك والمكونات الطازجة لضمان أفضل نكهة.</span>
-                   <span class="lang" data-lang="en">We use the finest fish and fresh ingredients for the best taste.</span></p>
+                <h3>
+                    <span class="lang" data-lang="ar">أجود المكونات</span>
+                    <span class="lang" data-lang="en">Premium Ingredients</span>
+                </h3>
+                <p>
+                    <span class="lang" data-lang="ar">نعتمد على أجود أنواع الأسماك والمكونات الطازجة لضمان أفضل نكهة.</span>
+                    <span class="lang" data-lang="en">We use the finest fish and fresh ingredients to ensure the best taste.</span>
+                </p>
             </div>
             <div class="feature-box">
-                <h3><span class="lang" data-lang="ar">تنوع كبير</span><span class="lang" data-lang="en">Wide Variety</span></h3>
-                <p><span class="lang" data-lang="ar">قائمة غنية تشمل الماكي، النيجيري، السوشي المقلي والمزيد.</span>
-                   <span class="lang" data-lang="en">A rich menu including maki, nigiri, fried sushi and more.</span></p>
+                <h3>
+                    <span class="lang" data-lang="ar">تنوع كبير</span>
+                    <span class="lang" data-lang="en">Wide Variety</span>
+                </h3>
+                <p>
+                    <span class="lang" data-lang="ar">قائمة غنية تشمل الماكي، النيجيري، السوشي المقلي والمزيد.</span>
+                    <span class="lang" data-lang="en">A rich menu including maki, nigiri, fried sushi, and more.</span>
+                </p>
             </div>
             <div class="feature-box">
-                <h3><span class="lang" data-lang="ar">تجربة فريدة</span><span class="lang" data-lang="en">Unique Experience</span></h3>
-                <p><span class="lang" data-lang="ar">ديكور عصري وخدمة مميزة تجعل زيارتك لا تُنسى.</span>
-                   <span class="lang" data-lang="en">Modern decor and exceptional service make your visit unforgettable.</span></p>
+                <h3>
+                    <span class="lang" data-lang="ar">تجربة فريدة</span>
+                    <span class="lang" data-lang="en">Unique Experience</span>
+                </h3>
+                <p>
+                    <span class="lang" data-lang="ar">ديكور عصري وخدمة مميزة تجعل زيارتك لا تُنسى.</span>
+                    <span class="lang" data-lang="en">Modern decor and excellent service make your visit unforgettable.</span>
+                </p>
             </div>
         </div>
     </section>
 
     <footer>
         <span class="lang" data-lang="ar">© 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة</span>
-        <span class="lang" data-lang="en">© 2025 SUSHI HIGHWAY — All rights reserved</span>
+        <span class="lang" data-lang="en">© 2025 SUSHI HIGHWAY — All Rights Reserved</span>
     </footer>
 
     <!-- أزرار التواصل -->
     <div class="social-buttons">
-        <a href="https://wa.me/9613823005" target="_blank">
-            <img src="whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/sushi.highway?igsh=cGpyeHdwYmo1NzNv" target="_blank">
-            <img src="instagram.png" alt="Instagram">
-        </a>
+        <a href="https://wa.me/9613823005" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/sushi.highway" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
     </div>
+
 </body>
 </html>
