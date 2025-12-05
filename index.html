@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الرئيسية | SUSHI HIGHWAY</title>
     <style>
+        /* شريط اللغة */
+        .language-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            font-family: "Cairo", sans-serif;
+            font-size: 18px;
+        }
+        .language-btn {
+            cursor: pointer;
+        }
+
         /* أزرار التواصل الاجتماعي */
         .social-buttons {
             position: fixed;
@@ -15,7 +35,6 @@
             flex-direction: column;
             gap: 12px;
         }
-
         .social-buttons a {
             width: 55px;
             height: 55px;
@@ -27,11 +46,9 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.25s;
         }
-
         .social-buttons a:hover {
             transform: scale(1.12);
         }
-
         .social-buttons img {
             width: 28px;
         }
@@ -42,6 +59,7 @@
             font-family: "Cairo", sans-serif;
             background: #fafafa;
             color: #222;
+            padding-top: 40px; /* مساحة للشريط العلوي */
         }
 
         /* الهيدر */
@@ -49,7 +67,7 @@
             background: #ffffffcc;
             backdrop-filter: blur(8px);
             position: sticky;
-            top: 0;
+            top: 32px; /* تحت شريط اللغة */
             z-index: 10;
             padding: 20px 40px;
             display: flex;
@@ -57,11 +75,9 @@
             align-items: center;
             border-bottom: 1px solid #eee;
         }
-
         .logo img {
-            height: 80px; /* حجم أكبر للوغو */
+            height: 80px;
         }
-
         nav a {
             margin-left: 20px;
             text-decoration: none;
@@ -79,7 +95,6 @@
             align-items: center;
             overflow: hidden;
         }
-
         .hero-video {
             position: absolute;
             top: 50%;
@@ -92,7 +107,6 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
-
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -102,7 +116,6 @@
             background: rgba(0,0,0,0.45);
             z-index: 2;
         }
-
         .hero-content {
             position: relative;
             z-index: 3;
@@ -110,18 +123,15 @@
             color: #fff;
             padding: 0 20px;
         }
-
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 10px;
             font-weight: bold;
         }
-
         .hero-content p {
             font-size: 20px;
             margin-bottom: 25px;
         }
-
         .btn {
             padding: 12px 28px;
             background: #e63946;
@@ -138,7 +148,6 @@
             padding: 0 20px;
             text-align: center;
         }
-
         .section h2 {
             font-size: 32px;
             margin-bottom: 20px;
@@ -146,20 +155,17 @@
             display: inline-block;
             padding-right: 10px;
         }
-
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-
         .feature-box {
             background: #fff;
             padding: 25px;
             border-radius: 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
         }
-
         .feature-box h3 {
             font-size: 22px;
             margin-bottom: 10px;
@@ -189,21 +195,29 @@
             z-index: 9999;
             transition: opacity 0.8s ease;
         }
-
         #splash img {
             width: 180px;
             animation: fadeLogo 1.8s ease-in-out infinite;
         }
-
         @keyframes fadeLogo {
             0% { opacity: 0.4; }
             50% { opacity: 1; }
             100% { opacity: 0.4; }
         }
 
+        /* إخفاء اللغة بشكل افتراضي */
+        .lang {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <!-- شريط اللغة -->
+    <div class="language-bar">
+        <span class="language-btn" data-lang="ar">🇱🇧 العربية</span>
+        <span class="language-btn" data-lang="en">🇬🇧 English</span>
+    </div>
+
     <!-- شاشة البداية -->
     <div id="splash">
         <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" />
@@ -217,6 +231,28 @@
                 setTimeout(() => splash.style.display = 'none', 800);
             }, 1800);
         });
+
+        // تغيير اللغة
+        const langButtons = document.querySelectorAll('.language-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                document.querySelectorAll('.lang').forEach(el => {
+                    if(el.getAttribute('data-lang') === lang){
+                        el.style.display = '';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // تعيين العربية افتراضياً عند التحميل
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.lang').forEach(el => {
+                if(el.getAttribute('data-lang') === 'ar') el.style.display = '';
+            });
+        });
     </script>
 
     <!-- الهيدر -->
@@ -225,46 +261,61 @@
             <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" />
         </div>
         <nav>
-            <a href="menu.html">MENU</a>
+            <a href="menu.html"><span class="lang" data-lang="ar">MENU</span><span class="lang" data-lang="en">Menu</span></a>
         </nav>
     </header>
 
-    <!-- قسم الهيرو بالفيديو العمودي -->
+    <!-- قسم الهيرو بالفيديو -->
     <section class="hero">
         <video autoplay muted loop playsinline class="hero-video" poster="hero-fallback.jpg">
-    <source src="sushi-vertical.mp4" type="video/mp4">
-    متصفحك لا يدعم الفيديو
-</video>
-
+            <source src="sushi-vertical.mp4" type="video/mp4">
+            متصفحك لا يدعم الفيديو
+        </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>مرحباً بكم في SUSHI HIGHWAY</h1>
-            <p>أفضل وجهة لعشاق السوشي بنكهات مبتكرة وجودة عالية</p>
-            <a class="btn" href="menu.html">استعرض المنيو</a>
+            <h1>
+                <span class="lang" data-lang="ar">مرحباً بكم في SUSHI HIGHWAY</span>
+                <span class="lang" data-lang="en">Welcome to SUSHI HIGHWAY</span>
+            </h1>
+            <p>
+                <span class="lang" data-lang="ar">أفضل وجهة لعشاق السوشي بنكهات مبتكرة وجودة عالية</span>
+                <span class="lang" data-lang="en">The best destination for sushi lovers with innovative flavors and top quality</span>
+            </p>
+            <a class="btn" href="menu.html">
+                <span class="lang" data-lang="ar">استعرض المنيو</span>
+                <span class="lang" data-lang="en">View Menu</span>
+            </a>
         </div>
     </section>
 
     <!-- قسم لماذا نحن؟ -->
     <section class="section">
-        <h2>لماذا نحن؟</h2>
+        <h2>
+            <span class="lang" data-lang="ar">لماذا نحن؟</span>
+            <span class="lang" data-lang="en">Why Us?</span>
+        </h2>
         <div class="features">
             <div class="feature-box">
-                <h3>أجود المكونات</h3>
-                <p>نعتمد على أجود أنواع الأسماك والمكونات الطازجة لضمان أفضل نكهة.</p>
+                <h3><span class="lang" data-lang="ar">أجود المكونات</span><span class="lang" data-lang="en">Finest Ingredients</span></h3>
+                <p><span class="lang" data-lang="ar">نعتمد على أجود أنواع الأسماك والمكونات الطازجة لضمان أفضل نكهة.</span>
+                   <span class="lang" data-lang="en">We use the finest fish and fresh ingredients for the best taste.</span></p>
             </div>
             <div class="feature-box">
-                <h3>تنوع كبير</h3>
-                <p>قائمة غنية تشمل الماكي، النيجيري، السوشي المقلي والمزيد.</p>
+                <h3><span class="lang" data-lang="ar">تنوع كبير</span><span class="lang" data-lang="en">Wide Variety</span></h3>
+                <p><span class="lang" data-lang="ar">قائمة غنية تشمل الماكي، النيجيري، السوشي المقلي والمزيد.</span>
+                   <span class="lang" data-lang="en">A rich menu including maki, nigiri, fried sushi and more.</span></p>
             </div>
             <div class="feature-box">
-                <h3>تجربة فريدة</h3>
-                <p>ديكور عصري وخدمة مميزة تجعل زيارتك لا تُنسى.</p>
+                <h3><span class="lang" data-lang="ar">تجربة فريدة</span><span class="lang" data-lang="en">Unique Experience</span></h3>
+                <p><span class="lang" data-lang="ar">ديكور عصري وخدمة مميزة تجعل زيارتك لا تُنسى.</span>
+                   <span class="lang" data-lang="en">Modern decor and exceptional service make your visit unforgettable.</span></p>
             </div>
         </div>
     </section>
 
     <footer>
-        © 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة
+        <span class="lang" data-lang="ar">© 2025 SUSHI HIGHWAY — جميع الحقوق محفوظة</span>
+        <span class="lang" data-lang="en">© 2025 SUSHI HIGHWAY — All rights reserved</span>
     </footer>
 
     <!-- أزرار التواصل -->
