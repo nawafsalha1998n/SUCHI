@@ -204,6 +204,7 @@ function setLanguage(lang) {
         el.classList.remove('active');
         if(el.getAttribute('data-lang') === lang) el.classList.add('active');
     });
+
     langAR.classList.remove('active');
     langEN.classList.remove('active');
     if(lang === 'ar') langAR.classList.add('active');
