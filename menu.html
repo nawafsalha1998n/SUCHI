@@ -10,17 +10,19 @@ body {
     margin: 0;
     background: radial-gradient(circle at top, #ffe8e8, #fafafa);
     color: #222;
-    /* top padding to avoid content covered by fixed topbar */
+
+    /* المساحة العلوية = ارتفاع البار الأول + الهيدر + الـ notch */
     padding-top: calc(56px + 56px + env(safe-area-inset-top));
 }
 
-/* fixed top social bar */
+/* ========== FIXED TOP SOCIAL BAR (BAR 1) ========== */
 .topbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
 
+    /* البار الأول يأخذ ارتفاعه + مساحة النوتش في الآيفون */
     height: calc(56px + env(safe-area-inset-top));
     padding-top: env(safe-area-inset-top);
 
@@ -39,6 +41,7 @@ body {
     padding: 0 18px;
     gap: 12px;
 }
+
 .topbar .brand {
     display: flex;
     align-items: center;
@@ -48,6 +51,7 @@ body {
     text-decoration: none;
     font-size: 16px;
 }
+
 .topbar .brand .logo {
     width: 36px;
     height: 36px;
@@ -60,7 +64,13 @@ body {
     font-size: 18px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
-.topbar .socials { display:flex; align-items:center; gap:10px; }
+
+.topbar .socials {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
 .topbar a.social {
     display: inline-flex;
     align-items: center;
@@ -74,28 +84,33 @@ body {
     transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
     opacity: 0.98;
 }
-.topbar a.social.whatsapp { background: #25D366; }
-.topbar a.social.instagram { background: radial-gradient(circle at 30% 10%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.topbar a.social:hover, .topbar a.social:focus { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.18); opacity:1; }
 
-.visually-hidden {
-    position: absolute !important;
-    height: 1px; width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
+.topbar a.social.whatsapp { background: #25D366; }
+.topbar a.social.instagram {
+    background: radial-gradient(circle at 30% 10%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
-/* header below the topbar */
+.topbar a.social:hover,
+.topbar a.social:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    opacity:1;
+}
+
+/* ========== FIXED HEADER UNDER THE TOPBAR (BAR 2) ========== */
 header {
     position: fixed;
+
+    /* الهيدر يبدأ بعد ارتفاع البار الأول + مساحة النوتش */
     top: calc(56px + env(safe-area-inset-top));
+
     left: 0;
     right: 0;
+
     background: linear-gradient(90deg, #e63946, #f3722c);
     padding: 15px 30px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    z-index: 1100;
+    z-index: 1100; /* أقل من التوب بار ولكن فوق كل شيء آخر */
 }
 
 
