@@ -169,7 +169,18 @@ header h1 { margin:0; font-size:24px; color:#fff; }
     .topbar { padding:6px 10px; }
     .topbar a.social { width:34px; height:34px; }
     header { padding:12px 16px; font-size:20px; }
+}.topbar .brand {
+    display: flex;
+    align-items: center;
 }
+
+.topbar .brand .logo-img {
+    height: 40px;       /* ارتفاع مناسب للـ topbar */
+    width: auto;
+    border-radius: 8px; /* اختياري لتقليل حدة الزوايا */
+    object-fit: contain;
+}
+
 </style>
 </head>
 <body>
@@ -178,9 +189,9 @@ header h1 { margin:0; font-size:24px; color:#fff; }
 <div class="topbar" aria-hidden="false">
   <div class="container">
     <a class="brand" href="/">
-      <span class="logo">🍣</span>
-      <span>SUSHI HIGHWAY</span>
-    </a>
+  <img src="logo.PNG" alt="SUSHI HIGHWAY Logo" class="logo-img">
+</a>
+
 
     <div class="socials" role="navigation" aria-label="Social links">
       <a class="social whatsapp" href="https://wa.me/9613823005" target="_blank" rel="noopener noreferrer" aria-label="واتساب" title="واتساب">
